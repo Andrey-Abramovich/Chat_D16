@@ -14,10 +14,14 @@
     </header>
     <nav>
         <a href="{% url 'index' %}">Главная</a>
+        <a href="{% url 'update' %}">update</a>
 
+        <a href="{% url 'view' %}">Личный кабинет пользователя {{ user.username }}</a>
+        {% if not user.is_active %}
         <a href="{% url 'login' %}">Войти</a>
+        {% endif %}
         <a href="{% url 'register' %}">Регистрация</a>
-        {% if user.is_authenticate %}
+        {% if user.is_active %}
         <a href="{% url 'logout' %}">Выйти</a>
         {% endif %}
     </nav>
