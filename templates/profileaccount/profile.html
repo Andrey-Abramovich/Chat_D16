@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     <h1>Пользователь: {{ us.user}}</h1>
@@ -6,7 +7,10 @@
     <p>Имя:           {{ us.first_name }}</p>
     <p>Фамилия:       {{ us.last_name }}</p>
     <p>Дата рождения: {{ us.birthday }}</p>
-    <p>Аватар:        {{ us.avatar }}</p>
+    {% if us.avatar %}
+    <p>Аватар:</p>
+    <img src="{{ us.avatar.url }}">
+    {% endif %}
     <p>E-mail:        {{ us.email }}</p>
 
 
